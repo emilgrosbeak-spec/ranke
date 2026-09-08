@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#153e34">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="燃刻">
+  <meta name="description" content="自用健身计划：今日作息、四餐食谱、四分化与五分化力量训练。数据保存在当前设备。">
+  <title>燃刻 · 我的健身计划</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
+  <link rel="icon" href="./icons/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./foods.js" defer></script>
+  <script src="./core.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <header class="app-header"><a class="brand" href="#today" aria-label="燃刻首页"><span class="brand-mark">燃</span><span>燃刻<small>我的健身计划</small></span></a><span id="saveState" class="save-state" role="status">正在读取</span></header>
+  <div id="critical" class="critical" role="alert" hidden></div>
+  <div id="updateBanner" class="update-banner" hidden><span>新版本已准备好</span><button data-action="update-app">保存并更新</button></div>
+  <main id="app" tabindex="-1"><section class="empty"><h1>正在打开你的计划</h1><p>首次加载后，核心功能可离线使用。</p></section></main>
+  <nav class="tabbar" aria-label="主导航">
+    <a href="#today" data-tab="today"><span aria-hidden="true">◷</span>今日</a>
+    <a href="#training" data-tab="training"><span aria-hidden="true">▥</span>训练</a>
+    <a href="#diet" data-tab="diet"><span aria-hidden="true">◒</span>食谱</a>
+    <a href="#schedule" data-tab="schedule"><span aria-hidden="true">▦</span>作息</a>
+    <a href="#settings" data-tab="settings"><span aria-hidden="true">⚙</span>设置</a>
+  </nav>
+  <aside id="timerBar" class="timer-bar" hidden aria-label="组间休息计时"></aside>
+  <dialog id="editor"><div id="editorBody"></div></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <input id="importFile" type="file" accept=".json,application/json" hidden>
+  <noscript><p class="critical">请允许 JavaScript，才能使用训练记录和本地保存。</p></noscript>
+</body>
+</html>
